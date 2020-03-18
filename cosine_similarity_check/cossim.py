@@ -12,7 +12,7 @@ for k in fday:
     fp1 = open('day/'+(day), 'rb')
     feat1 = np.fromfile('day/'+(day), dtype = '<f', count = -1)
     #sprint(day.replace('.feat',''))
-    maxsim = 1
+    maxsim = 0
     maxsim_name = 'NULL'
     fstd = open('liststd.txt','r')
     for j in fstd:
@@ -20,9 +20,9 @@ for k in fday:
         std = std.replace('.jpg\n','.feat')
         fp2 = open('standard_features/'+(std),'rb')
         feat2 = np.fromfile('standard_features/'+(std), dtype = '<f', count = -1)
-        cos_sim = dot(feat1, feat2) / (norm(feat1) * norm(feat2))
+        cos_sim = abs(dot(feat1, feat2) / (norm(feat1) * norm(feat2)))
         #print(cos_sim)
-        if abs(cos_sim)<abs(maxsim):
+        if (cos_sim)>(maxsim):
             maxsim = cos_sim
             maxsim_name = std
     fstd.close()
