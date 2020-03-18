@@ -77,7 +77,7 @@ def main():
         count = count + 1
         img   = cv2.imread(os.path.join(args.root_path, img_name), cv2.IMREAD_GRAYSCALE)
         # print(img.shape)
-        img  = np.resize(img, (128, 128, 1))
+        img  = cv2.resize(img, (128, 128))
         
         # img2 = np.resize(img, (128, 128))
         # imgtmp = Image.fromarray(img2)
