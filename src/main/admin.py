@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import ClassImage
 
-# Register your models here.
+
+@admin.register(ClassImage)
+class ClassImageAdmin(admin.ModelAdmin):
+    pass
