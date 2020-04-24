@@ -31,7 +31,7 @@ for test_img_name in test_data_list:
 
         ref_img_name = ref_img_name.replace('.jpg\n','.feat') # the feature file would have a different extension so change it
         
-        ref_feat_file = open('save_path/'+ ref_img_name,'rb') # opening the feature file of the ref face
+        ref_feat_file = open('save_path/standard_features/'+ ref_img_name,'rb') # opening the feature file of the ref face
         
         ref_feat = np.fromfile(ref_feat_file, dtype = '<f', count = -1)  # loading the features of the ref img
         
