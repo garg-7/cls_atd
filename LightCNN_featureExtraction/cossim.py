@@ -1,6 +1,6 @@
 from numpy import dot
 from numpy.linalg import norm
-
+import pickle
 import numpy as np
 
 sim = dict()    # dictionary that stores:
