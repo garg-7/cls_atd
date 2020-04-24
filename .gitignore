@@ -1,2 +1,6 @@
 .idea/
 venv/
+LightCNN_featureExtraction/day/
+LightCNN_featureExtraction/faces_after_resizing/
+LightCNN_featureExtraction/feat/
+LightCNN_featureExtraction/standard_features/
