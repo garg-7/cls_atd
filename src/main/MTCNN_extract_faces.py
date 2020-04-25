@@ -1,12 +1,16 @@
 import cv2
 from mtcnn import MTCNN
 import os
+from skimage import io
 
 
-def extract_faces(images_path):
+def extract_faces():
+
+    # pth = f'../media/class/{images_path}'
+    # print(pth)
     detector = MTCNN()
 
-    image = cv2.cvtColor(cv2.imread(images_path), cv2.COLOR_BGR2RGB)
+    image = io.imread("http://localhost:8000/media/class/1.jpg")
     result = detector.detect_faces(image)
 
     # Result is an array with all the bounding boxes detected.
@@ -37,3 +41,6 @@ def extract_faces(images_path):
     # cv2.imwrite("3_result.jpg", cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
 
     print("Number of faces detected: ", num_of_faces)
+
+
+# extract_faces("http://localhost:8000/media/class/1.jpg")
