@@ -31,17 +31,17 @@ from load_imglist import ImageList
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Feature Extracting')
 parser.add_argument('--arch', '-a', metavar='ARCH', default='LightCNN')
 parser.add_argument('--cuda', '-c', default=True)
-parser.add_argument('--resume', default='', type=str, metavar='PATH',
+parser.add_argument('--resume', default='./LightCNN_29Layers_V2_checkpoint.pth.tar', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
-parser.add_argument('--model', default='', type=str, metavar='Model',
+parser.add_argument('--model', default='LightCNN-29v2', type=str, metavar='Model',
                     help='model type: LightCNN-9, LightCNN-29')
-parser.add_argument('--root_path', default='', type=str, metavar='PATH', 
+parser.add_argument('--root_path', default='./data/', type=str, metavar='PATH', 
                     help='root path of face images (default: none).')
-parser.add_argument('--img_list', default='', type=str, metavar='PATH', 
+parser.add_argument('--img_list', default='./list.txt', type=str, metavar='PATH', 
                     help='list of face images for feature extraction (default: none).')
-parser.add_argument('--save_path', default='', type=str, metavar='PATH', 
+parser.add_argument('--save_path', default='save_path', type=str, metavar='PATH', 
                     help='save root path for features of face images.')
-parser.add_argument('--num_classes', default=79077, type=int,
+parser.add_argument('--num_classes', default=80013, type=int,
                     metavar='N', help='mini-batch size (default: 79077)')
 
 def main():
@@ -83,7 +83,7 @@ def main():
         # imgtmp = Image.fromarray(img2)
         # imgtmp.save("hey_{}.jpg".format(count))
         
-        cv2.imwrite("resized_{}.jpg".format(count), img)
+        # cv2.imwrite("resized_{}.jpg".format(count), img)
 
         # matplotlib.image.imsave("name_{}".format(count),img)
 
