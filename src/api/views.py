@@ -40,20 +40,6 @@ def detect_faces(image_path):
                  bounding_box[0]:(bounding_box[0] + bounding_box[2])]
         cv2.imwrite("face_{}.jpg".format(j + 1), cv2.cvtColor(tempim, cv2.COLOR_RGB2BGR))
         j = j + 1
-    # # extract the bounding box from the faces
-    # detected_faces = list()
-    # for result in results:
-    #
-    #     # only detect faces with a confidence of 90% and above
-    #     if result['confidence'] > 0.90:
-    #         detected_faces.append({
-    #             "face_id": uuid.uuid4(),
-    #             "confidence": result['confidence'],
-    #             "bounding_box": result['box'],
-    #             "keypoints": result['keypoints']
-    #         })
-    #
-    # return detected_faces
 
 
 class Image(APIView):
