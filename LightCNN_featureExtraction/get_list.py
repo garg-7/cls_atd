@@ -1,6 +1,6 @@
 import os
 
-f = open('data/list.txt','w')
+f = open('./list.txt','w')
 
 name_list = list()
 for (dirpath, dirname, filename) in os.walk('data/'):
