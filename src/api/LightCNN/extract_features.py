@@ -46,6 +46,7 @@ parser.add_argument('--num_classes', default=80013, type=int,
 
 
 def main():
+    print(os.environ['PATH'])
     global args
     args = parser.parse_args()
 
