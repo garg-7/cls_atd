@@ -11,6 +11,8 @@ from django.conf import settings
 from PIL import Image as PImage
 import cv2
 from mtcnn import MTCNN
+from subprocess import Popen
+
 
 
 def upload_image(request):
@@ -42,11 +44,34 @@ def detect_faces(image_path):
         cv2.imwrite("face_{}.jpg".format(j + 1), cv2.cvtColor(tempim, cv2.COLOR_RGB2BGR))
         j = j + 1
 
+#
+# def make_list():
+#     f = open('./list.txt', 'w')
+#     name_list = list()
+#     for (dirpath, dirname, filename) in os.walk('data/'):
+#         for files in filename:
+#             name_list.append(files)
+#
+#     name_list = sorted(name_list)
+#     for files in name_list:
+#         f.write(files + os.linesep)
+#     f.close()
+
 
 class Image(APIView):
 
     def post(self, request, *args, **kwargs):
         upload = upload_image(request=request)
         detect_faces(upload)
-
+        # dir_path = os.path.dirname(os.path.realpath(__file__))
+        # os.chdir(dir_path)
+        # make_list()
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        path = os.path.join(dir_path, 'LightCNN')
+        get_list = os.path.join(path, 'get_list.py')
+        extract_feat = os.path.join(path, 'extract_features.py')
+        os.chdir(path)
+        # print(get_list)
+        os.system(f'python {get_list}')
+        os.system(f'python {extract_feat}')
         return Response({"success": "DONE"}, status=status.HTTP_202_ACCEPTED)
