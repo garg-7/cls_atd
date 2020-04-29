@@ -30,7 +30,8 @@ def detect_faces(image_path):
     result = detector.detect_faces(pixels)
     num_of_faces = len(result)
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    path = os.path.join(dir_path, 'extracted_faces')
+    path = os.path.join(dir_path, 'LightCNN')
+    path = os.path.join(path, 'data')
     os.chdir(path)
     j = 0
     for i in range(0, num_of_faces):
@@ -47,4 +48,5 @@ class Image(APIView):
     def post(self, request, *args, **kwargs):
         upload = upload_image(request=request)
         detect_faces(upload)
+
         return Response({"success": "DONE"}, status=status.HTTP_202_ACCEPTED)
