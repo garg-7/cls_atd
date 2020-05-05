@@ -11,8 +11,6 @@ from django.conf import settings
 from PIL import Image as PImage
 import cv2
 from mtcnn import MTCNN
-from subprocess import Popen
-
 
 
 def upload_image(request):
