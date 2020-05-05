@@ -4,3 +4,4 @@ Submitted_results/
 *.tar
 __pycache__/
 *.jpg
+env/
