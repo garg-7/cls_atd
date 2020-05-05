@@ -1,6 +1,6 @@
 from numpy import dot
 from numpy.linalg import norm
-import pickle
+import json
 import numpy as np
 
 sim = dict()    # dictionary that stores:
@@ -37,7 +37,7 @@ for test_img_name in test_data_list:
         
         cos_sim = abs(dot(test_feat, ref_feat) / (norm(test_feat) * norm(ref_feat)))
         
-        temp.append((ref_img_name.replace('.feat',''),cos_sim))
+        temp.append((ref_img_name.replace('.feat',''),float(cos_sim)))
         
         if cos_sim > maxsim:
             maxsim = cos_sim
@@ -47,8 +47,8 @@ for test_img_name in test_data_list:
     
     sim[test_img_name.replace('.feat','')] = temp
     print(test_img_name.replace('.feat','')+" - " + maxsim_name.replace('f.feat','') + "| Score :", maxsim)
-    with open('scores.pickle', 'wb') as handle:
-        pickle.dump(sim, handle, protocol = pickle.HIGHEST_PROTOCOL)
+    with open('scores.json', 'w') as handle:
+        json.dump(sim, handle)
 
 # print("\n\n----Normal execution ended----\n\n")
 
