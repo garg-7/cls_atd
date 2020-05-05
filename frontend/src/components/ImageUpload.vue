@@ -1,12 +1,14 @@
 <template>
-  <div class="container">
     <div class="col-lg-12 col-md-12 col-sm-12 cell">
-      <label>File
-        <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
+      <div v-if="imageURL">
+        <v-img :src="imageURL" aspect-ratio="1.7"  max-width="85vh"></v-img>
+      </div>
+      <label>
+        <input v-if ="!imageURL" type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
       </label>
-      <button v-on:click="submitFile()">Submit</button>
+      <br>
+      <v-btn large color="blue" class="ma-12" v-on:click="submitFile()">Submit</v-btn>
     </div>
-  </div>
 </template>
 
 <script>
@@ -15,14 +17,17 @@
         name: "ImageUpload",
         data(){
             return{
-                image: ''
+                image: '',
+                imageURL: ''
             }
         },
         methods: {
             handleFileUpload() {
                 this.image = this.$refs.file.files[0];
+                this.imageURL = URL.createObjectURL(this.image);
             },
             submitFile(){
+
                 let formData = new FormData();
                 formData.append('image', this.image);
                 axios.post( 'api/image/',
