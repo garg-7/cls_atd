@@ -19,7 +19,7 @@ Following 3 steps are involved:
 - Scores.json contains a dictionary, which has values in the form of :
 ```
 {
-  test_1 : [roll_no1, scorewithrollno1], [rolln_no2, scorewithrollno2] ...,
+  test_1 : [[roll_no1, scorewithrollno1], [rolln_no2, scorewithrollno2] ...],
   test_2 : ...
   .
   .
