@@ -17,11 +17,13 @@ Following 3 steps are involved:
 - It reads any feature files present in the save_path/ dir. and compares it with all the feature files in the save_path/standard_features/ dir.
 - It stores the results in a score.json file in the current directory.
 - Scores.json contains a dictionary, which has values in the form of :
+```
 {
-  test_1 : [roll_no1, scorewithrollno1], [rolln_no2, scorewithrollno2] ...
+  test_1 : [roll_no1, scorewithrollno1], [rolln_no2, scorewithrollno2] ...,
   test_2 : ...
   .
   .
 }
+```
 
 The scores listed above will be in descending order i.e. the Roll No. that matches the most against a test file is listed first.
