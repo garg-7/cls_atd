@@ -48,7 +48,7 @@ for test_img_name in test_data_list:
     sim[test_img_name.replace('.feat','')] = temp
     print(test_img_name.replace('.feat','')+" - " + maxsim_name.replace('f.feat','') + "| Score :", maxsim)
     with open('scores.json', 'w') as handle:
-        json.dump(sim, handle)
+        json.dump(maxsim_name.replace('f.feat',''), handle)
 
 # print("\n\n----Normal execution ended----\n\n")
 

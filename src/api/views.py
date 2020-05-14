@@ -11,6 +11,7 @@ from django.conf import settings
 from PIL import Image as PImage
 import cv2
 from mtcnn import MTCNN
+import json
 
 
 def upload_image(request):
@@ -53,9 +54,12 @@ class Image(APIView):
         get_list = os.path.join(path, 'get_list.py')
         extract_feat = os.path.join(path, 'extract_features.py')
         cosine = os.path.join(path, 'cossim.py')
-        scores = os.path.join(path, 'scores.json')
         os.chdir(path)
-        os.system(f'python {get_list}')
-        os.system(f'python {extract_feat}')
-        os.system(f'python {cosine}')
-        return Response(scores, status=status.HTTP_202_ACCEPTED)
+        # os.system(f'python {get_list}')
+        # os.system(f'python {extract_feat}')
+        # os.system(f'python {cosine}')
+        scores = os.path.join(path, 'scores.json')
+        f = open(scores, )
+        data = json.load(f)
+        f.close()
+        return Response(data, status=status.HTTP_200_OK)

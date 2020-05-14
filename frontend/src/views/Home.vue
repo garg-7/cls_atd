@@ -1,6 +1,5 @@
 <template lang="pug">
   div(class="home" align="center")
-    h2.ma-12 Upload the Image of Classroom to get Attendance
     ImageUpload
 </template>
 
