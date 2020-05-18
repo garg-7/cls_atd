@@ -59,6 +59,8 @@ for test_img_name in test_data_list:
     with open('scores.json', 'w') as handle:
         json.dump(sim, handle)
 
+with open('attendance.json', 'w', encoding='utf-8') as f:
+    json.dump(ans, f, ensure_ascii=False, indent=4)
 # print("\n\n----Normal execution ended----\n\n")
 
 
