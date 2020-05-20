@@ -1,38 +1,14 @@
 [
     {
-        "roll_no": "MT19CS019",
+        "roll_no": "P19CS201",
         "attendance": "Present"
     },
     {
-        "roll_no": "MT19DCS010",
+        "roll_no": "IDRP19CG202",
         "attendance": "Present"
     },
     {
-        "roll_no": "MT19DCS010",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19DCS010",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "IDRP19CG201",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19CS019",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MP19AI001",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19AI018",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "P19CSE011",
+        "roll_no": "MT19AI002",
         "attendance": "Present"
     },
     {
@@ -40,47 +16,11 @@
         "attendance": "Present"
     },
     {
-        "roll_no": "P19CS202",
+        "roll_no": "MT19AI014",
         "attendance": "Present"
     },
     {
-        "roll_no": "P19CSE011",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19AI024",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19AI019",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19DCS010",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19AI018",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19DCS010",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19DCS010",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19AI018",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "P19CSE011",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19DCS010",
+        "roll_no": "MT19CS018",
         "attendance": "Present"
     },
     {
@@ -88,19 +28,7 @@
         "attendance": "Present"
     },
     {
-        "roll_no": "P19CS201",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "P19CS202",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "MT19DCS010",
-        "attendance": "Present"
-    },
-    {
-        "roll_no": "P19CS201",
+        "roll_no": "P19CSE011",
         "attendance": "Present"
     },
     {
@@ -108,7 +36,79 @@
         "attendance": "Present"
     },
     {
+        "roll_no": "MT19CS017",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MP19CS004",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MP19CS003",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "P19CS201",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MT19AI019",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MT19AI032",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MT19AI018",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MT19AI002",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "P19CS201",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "IDRP19CG202",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MT19CS018",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "P19CS201",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "P19CS201",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MT19DCS013",
+        "attendance": "Present"
+    },
+    {
         "roll_no": "MT19DCS010",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MT19AI006",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "P19CS202",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "MT19CS001",
+        "attendance": "Present"
+    },
+    {
+        "roll_no": "IDRP19CG201",
         "attendance": "Present"
     }
 ]

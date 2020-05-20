@@ -98,7 +98,7 @@ def main():
         input_var = torch.autograd.Variable(input, volatile=True)
         _, features = model(input_var)
         # print("\n")
-        # print(features.data.cpu().numpy())
+        # print(type(features.data.cpu().numpy()[0][0]))
         # print("\n")
         end = time.time() - start
         print("{}({}/{}). Time: {}".format(os.path.join(args.root_path, img_name), count, len(img_list), end))
