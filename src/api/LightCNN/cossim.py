@@ -54,7 +54,8 @@ for test_img_name in test_data_list:
     print(test_img_name.replace('.feat', '') + " - " + maxsim_name.replace('f.feat', '') + "| Score :", maxsim)
     ans.append({
         "roll_no": maxsim_name.replace('f.feat', ''),
-        "attendance": 'Present'
+        "attendance": 'Present',
+        "score": maxsim
     })
     with open('scores.json', 'w') as handle:
         json.dump(sim, handle)
