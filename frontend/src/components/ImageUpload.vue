@@ -1,26 +1,15 @@
-<template>
-  <div>
-    <div v-if="!attendanceData[0].roll_no" class="col-lg-12 col-md-12 col-sm-12 cell">
-      <h2 class="ma-12" >Upload the Image of Classroom to get Attendance</h2>
-      <div v-if="imageURL">
-        <v-img :src="imageURL" aspect-ratio="1.7"  max-width="85vh"></v-img>
-      </div>
-      <label v-if ="!imageURL" class="custom-file-upload">
-        <input v-if ="!imageURL" type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-        Upload a Image
-      </label>
-      <br>
-      <v-btn v-if ="imageURL" large color="blue" :loading="loading" class="ma-12 white--text" v-on:click="submitFile()">Submit</v-btn>
-    </div>
-    <div v-if="attendanceData[0].roll_no" class="col-md-6">
-      <v-data-table
-          :headers="headers"
-          :items="attendanceData"
-          :items-per-page="30"
-          class="elevation-1"
-      ></v-data-table>
-    </div>
-    </div>
+<template lang="pug">
+  div.col-lg-12.col-md-12.col-sm-12.cell(v-if="!attendanceData[0].roll_no")
+    h2.ma-12 Upload the Image of Classroom to get Attendance
+    div(v-if="imageURL")
+      v-img(:src="imageURL" aspect-ratio="1.7" max-width="85vh")
+    label.custom-file-upload(v-if="!imageURL")
+      input#file(v-if="!imageURL" type="file" ref="file" v-on:change="handleFileUpload()")
+    | Upload a Image
+    br
+    v-btn.ma-12.white--text(v-if="imageURL" large="" color="blue" :loading="loading" v-on:click="submitFile()") Submit
+  div.col-md-6(v-if="attendanceData[0].roll_no")
+    v-data-table.elevation-1(:headers="headers" :items="attendanceData" :items-per-page="30")
 </template>
 
 <script>
