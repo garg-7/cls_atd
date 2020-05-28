@@ -33,12 +33,14 @@
                 imageURL: '',
                 headers: [
                     { text: 'Roll no', value: 'roll_no' },
-                    { text: 'Attendance', value: 'attendance'}
+                    { text: 'Attendance', value: 'attendance'},
+                    { text: 'Scores', value: 'scores'}
                 ],
                 loading : false,
                 attendanceData: [{
                     roll_no : '',
-                    attendance: ''
+                    attendance: '',
+                    scores: ''
                 }]
             }
         },
