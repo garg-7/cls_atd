@@ -26,8 +26,6 @@ def detect_faces(image_path):
     pixels = asarray(image)
 
     detector = MTCNN()
-    # detect faces in the image
-
     result = detector.detect_faces(pixels)
     num_of_faces = len(result)
     dir_path = os.path.dirname(os.path.realpath(__file__))
