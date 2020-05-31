@@ -30,7 +30,8 @@
                 attendanceData: [{
                     roll_no : '',
                     attendance: '',
-                    score: ''
+                    score: '',
+                    ref_img: ''
                 }]
             }
         },
@@ -52,6 +53,7 @@
                     }
                 ).then((response)=>{
                     this.attendanceData = response.data;
+                    console.log(this.attendanceData);
                     this.loading = false;
                 })
                     .catch(()=>{
