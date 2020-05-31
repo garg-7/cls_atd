@@ -6,7 +6,7 @@
         v-img(:src="imageURL" aspect-ratio="1.7" max-width="85vh")
       label.custom-file-upload(v-if="!imageURL")
         input(v-if="!imageURL" id="file" type="file" ref="file" v-on:change="handleFileUpload()")
-      | Upload a Image
+        | Upload a Image
       br
       v-btn.ma-12.white--text(v-if="imageURL" large="" color="blue" :loading="loading" v-on:click="submitFile()") Submit
     div.col-md-6(v-if="attendanceData[0].roll_no")
