@@ -11,6 +11,8 @@
       v-btn.ma-12.white--text(v-if="imageURL" large="" color="blue" :loading="loading" v-on:click="submitFile()") Submit
     div.col-md-6(v-if="attendanceData[0].roll_no")
       v-data-table.elevation-1(:headers="headers" :items="attendanceData" :items-per-page="30")
+        template(v-slot:item.ref_img='{ item }')
+          v-img(:src="item.ref_img" max-height="10rem" max-width="10rem" height="auto" width="auto")
 </template>
 
 <script>
@@ -24,7 +26,8 @@
                 headers: [
                     { text: 'Roll no', value: 'roll_no' },
                     { text: 'Attendance', value: 'attendance'},
-                    { text: 'Scores', value: 'score'}
+                    { text: 'Scores', value: 'score'},
+                    { text: 'Reference Image', value: 'ref_img'}
                 ],
                 loading : false,
                 attendanceData: [{
