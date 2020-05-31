@@ -13,6 +13,8 @@
       v-data-table.elevation-1(:headers="headers" :items="attendanceData" :items-per-page="30")
         template(v-slot:item.ref_img='{ item }')
           v-img(:src="item.ref_img" max-height="10rem" max-width="10rem" height="auto" width="auto")
+        template(v-slot:item.ext_img='{ item }')
+          v-img(:src="item.ext_img" max-height="10rem" max-width="10rem" height="auto" width="auto")
 </template>
 
 <script>
@@ -27,14 +29,16 @@
                     { text: 'Roll no', value: 'roll_no' },
                     { text: 'Attendance', value: 'attendance'},
                     { text: 'Scores', value: 'score'},
-                    { text: 'Reference Image', value: 'ref_img'}
+                    { text: 'Reference Image', value: 'ref_img'},
+                    { text: 'Extracted Image', value: 'ext_img'}
                 ],
                 loading : false,
                 attendanceData: [{
                     roll_no : '',
                     attendance: '',
                     score: '',
-                    ref_img: ''
+                    ref_img: '',
+                    ext_img: ''
                 }]
             }
         },

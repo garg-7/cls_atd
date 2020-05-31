@@ -56,7 +56,8 @@ for test_img_name in test_data_list:
         "roll_no": maxsim_name.replace('f.feat', ''),
         "attendance": 'Present',
         "score": str(maxsim),
-        "ref_img": 'http://localhost:8000/static/reference/{}.jpg'.format(maxsim_name.replace('f.feat', ''))
+        "ref_img": 'http://localhost:8000/static/reference/{}.jpg'.format(maxsim_name.replace('f.feat', '')),
+        "ext_img": 'http://localhost:8000/static/extracted/{}.jpg'.format(test_img_name.replace('.feat', ''))
     })
     with open('scores.json', 'w') as handle:
         json.dump(sim, handle)
