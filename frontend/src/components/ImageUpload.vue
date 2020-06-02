@@ -17,7 +17,6 @@
         template(v-slot:item.ext_img='{ item }')
           v-img.ma-2(:src="item.ext_img" max-height="10rem" max-width="10rem" height="auto" width="auto")
         template(v-slot:top)
-          v-btn.ml-12.white--text(large color="blue" @click = "step = 1") Go Back
           v-btn.ml-12.white--text(large color="blue" @click = "step = 3") Get Attendance
     div.col-md-6(v-if="step===3")
       v-data-table.elevation-1(:headers="headers" :items="selected" :items-per-page="30")
