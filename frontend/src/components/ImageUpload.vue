@@ -9,13 +9,20 @@
         | Upload a Image
       br
       v-btn.ma-12.white--text(v-if="imageURL && !submitDone" large="" color="blue" :loading="loading" v-on:click="submitFile()") Submit
-      v-btn.ma-12.white--text(v-if = "submitDone" large color="blue" @click = "step = 2") Get Attendance
+      v-btn.ma-12.white--text(v-if = "submitDone" large color="blue" @click = "step = 2") Check Results
     div.col-md-6(v-if="step===2")
-      v-data-table.elevation-1(:headers="headers" :items="attendanceData" :items-per-page="30")
+      v-data-table.elevation-1(v-model="selected" show-select item-key="score" :single-select="singleSelect" :headers="headersImg" :items="attendanceData" :items-per-page="30")
         template(v-slot:item.ref_img='{ item }')
           v-img.ma-2(:src="item.ref_img" max-height="10rem" max-width="10rem" height="auto" width="auto" )
         template(v-slot:item.ext_img='{ item }')
           v-img.ma-2(:src="item.ext_img" max-height="10rem" max-width="10rem" height="auto" width="auto")
+        template(v-slot:top)
+          v-btn.ml-12.white--text(large color="blue" @click = "step = 1") Go Back
+          v-btn.ml-12.white--text(large color="blue" @click = "step = 3") Get Attendance
+    div.col-md-6(v-if="step===3")
+      v-data-table.elevation-1(:headers="headers" :items="selected" :items-per-page="30")
+        template(v-slot:top)
+          v-btn.ma-1.white--text(large color="blue" @click = "step = 2") Go Back
 </template>
 
 <script>
@@ -27,13 +34,17 @@
                 image: '',
                 imageURL: '',
                 step: 0,
+                singleSelect: false,
                 submitDone: false,
+                selected: [],
+                headersImg: [
+                    { text: 'Reference Image', value: 'ref_img'},
+                    { text: 'Extracted Image', value: 'ext_img'},
+                    { text: 'Scores', value: 'score'}
+                ],
                 headers: [
                     { text: 'Roll no', value: 'roll_no' },
                     { text: 'Attendance', value: 'attendance'},
-                    { text: 'Scores', value: 'score'},
-                    { text: 'Reference Image', value: 'ref_img'},
-                    { text: 'Extracted Image', value: 'ext_img'}
                 ],
                 loading : false,
                 attendanceData: [{
@@ -41,7 +52,7 @@
                     attendance: '',
                     score: '',
                     ref_img: '',
-                    ext_img: ''
+                    ext_img: '',
                 }]
             }
         },
