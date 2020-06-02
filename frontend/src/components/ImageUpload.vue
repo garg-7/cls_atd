@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    div.col-lg-12.col-md-12.col-sm-12.cell(v-if="!attendanceData[0].roll_no")
+    div.col-lg-12.col-md-12.col-sm-12.cell(v-if="step===0")
       h2.ma-12 Upload the Image of Classroom to get Attendance
       div(v-if="imageURL")
         v-img(:src="imageURL" aspect-ratio="1.7" max-width="85vh")
@@ -8,13 +8,14 @@
         input(v-if="!imageURL" id="file" type="file" ref="file" v-on:change="handleFileUpload()")
         | Upload a Image
       br
-      v-btn.ma-12.white--text(v-if="imageURL" large="" color="blue" :loading="loading" v-on:click="submitFile()") Submit
-    div.col-md-6(v-if="attendanceData[0].roll_no")
+      v-btn.ma-12.white--text(v-if="imageURL && !submitDone" large="" color="blue" :loading="loading" v-on:click="submitFile()") Submit
+      v-btn.ma-12.white--text(v-if = "submitDone" large color="blue" @click = "step = 2") Get Attendance
+    div.col-md-6(v-if="step===2")
       v-data-table.elevation-1(:headers="headers" :items="attendanceData" :items-per-page="30")
         template(v-slot:item.ref_img='{ item }')
-          v-img(:src="item.ref_img" max-height="10rem" max-width="10rem" height="auto" width="auto")
+          v-img.ma-2(:src="item.ref_img" max-height="10rem" max-width="10rem" height="auto" width="auto" )
         template(v-slot:item.ext_img='{ item }')
-          v-img(:src="item.ext_img" max-height="10rem" max-width="10rem" height="auto" width="auto")
+          v-img.ma-2(:src="item.ext_img" max-height="10rem" max-width="10rem" height="auto" width="auto")
 </template>
 
 <script>
@@ -25,6 +26,8 @@
             return{
                 image: '',
                 imageURL: '',
+                step: 0,
+                submitDone: false,
                 headers: [
                     { text: 'Roll no', value: 'roll_no' },
                     { text: 'Attendance', value: 'attendance'},
@@ -60,8 +63,8 @@
                     }
                 ).then((response)=>{
                     this.attendanceData = response.data;
-                    console.log(this.attendanceData);
                     this.loading = false;
+                    this.submitDone = true;
                 })
                     .catch(()=>{
                         console.log('FAILURE!!');
