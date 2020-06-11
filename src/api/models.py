@@ -9,7 +9,7 @@ class Student(models.Model):
 
 
 class Attendance(models.Model):
-    date = models.DateField(unique_for_date=True, auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     status = models.ManyToManyField(Student, through='AttendanceStatus',
                                     through_fields=('attendance', 'student'))
 
