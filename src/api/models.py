@@ -14,7 +14,7 @@ class Attendance(models.Model):
                                     through_fields=('attendance', 'student'))
 
     def __str__(self):
-        return self.date
+        return str(self.date.strftime("%d/%m/%Y"))
 
 
 class AttendanceStatus(models.Model):
@@ -28,5 +28,5 @@ class AttendanceStatus(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, max_length=2)
 
     def __str__(self):
-        return self.student
+        return self.student.roll_no
 
