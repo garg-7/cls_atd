@@ -2,9 +2,11 @@ import uuid
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
 from django.core.files.storage import default_storage
 import os
+from .serializers import AttendanceSerializer
+from .models import Attendance
 from numpy import asarray
 
 from django.conf import settings
@@ -64,3 +66,8 @@ class Image(APIView):
         data = json.load(f)
         f.close()
         return Response(data, status=status.HTTP_200_OK)
+
+
+class AttendanceViewSet(viewsets.ModelViewSet):
+    serializer_class = AttendanceSerializer
+    queryset = Attendance.objects.all()
