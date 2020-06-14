@@ -5,12 +5,12 @@ from .models import Attendance, AttendanceStatus
 class AttendanceStatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = AttendanceStatus
-        fields = '__all__'
+        fields = ('status', 'student')
 
 
 class AttendanceSerializer(serializers.ModelSerializer):
-    status = AttendanceStatusSerializer(many=True)
+    attendance = AttendanceStatusSerializer(source='attendancestatus_set', many=True)
 
     class Meta:
         model = Attendance
-        fields = '__all__'
+        fields = ('date', 'attendance')
