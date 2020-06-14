@@ -5,7 +5,7 @@
       v-btn.ma-12.white--text( @click = "step=1" color="blue") Previous Attendance
       v-btn.ma-12.white--text(@click = "step=2" color="blue") New Attendance
     div(v-if="step===1")
-      PrevAttendance
+      PrevAttendance(@current="step=0")
     div(v-if="step===2")
       ImageUpload
 </template>

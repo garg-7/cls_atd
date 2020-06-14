@@ -1,5 +1,6 @@
 <template lang="pug">
-  div.col-lg-10.ma-8
+  div.col-lg-6.ma-8
+    v-btn.ma-6.white--text(color="blue" @click="goBack") Go Back
     div(v-if="dates[0]")
       v-select(:items="dates" label="Select Date" v-model="index" item-value="index" item-text="date" outlined)
     div(v-if="index!==-1")
@@ -19,6 +20,11 @@
                     { text: 'Roll no', value: 'student' },
                     { text: 'Attendance', value: 'status_display'}
                 ]
+            }
+        },
+        methods:{
+            goBack(){
+                this.$emit('current')
             }
         },
         mounted() {
