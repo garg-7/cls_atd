@@ -2,7 +2,7 @@ import uuid
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status, viewsets
+from rest_framework import status
 from django.core.files.storage import default_storage
 import os
 from .serializers import AttendanceSerializer
@@ -68,6 +68,9 @@ class Image(APIView):
         return Response(data, status=status.HTTP_200_OK)
 
 
-class AttendanceViewSet(viewsets.ModelViewSet):
-    serializer_class = AttendanceSerializer
-    queryset = Attendance.objects.all()
+class AttendanceAPIView(APIView):
+
+    def get(self, request, format=None):
+        data = Attendance.objects.all()
+        serializer = AttendanceSerializer(data, many=True)  # Display
+        return Response(serializer.data)

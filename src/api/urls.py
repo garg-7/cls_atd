@@ -1,12 +1,8 @@
 from django.urls import path
-from rest_framework.routers import DefaultRouter
-from .views import Image, AttendanceViewSet
+from .views import Image, AttendanceAPIView
 
-router = DefaultRouter()
-router.register(r'attendance', AttendanceViewSet)
 
 urlpatterns = [
     path('image/', Image.as_view(), name='upload-image'),
+    path('attendance/', AttendanceAPIView.as_view(), name='attendance')
 ]
-
-urlpatterns += router.urls
