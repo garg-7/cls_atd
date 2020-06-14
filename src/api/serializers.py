@@ -16,7 +16,6 @@ class AttendanceSerializer(serializers.ModelSerializer):
         fields = ('date', 'attendance')
 
     def create(self, validated_data):
-        print(validated_data)
         attendance_status_data = validated_data.pop('attendancestatus_set')
         data = Attendance.objects.create(**validated_data)
         for attendance_status in attendance_status_data:
