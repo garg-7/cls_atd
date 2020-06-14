@@ -3,9 +3,11 @@ from .models import Attendance, AttendanceStatus
 
 
 class AttendanceStatusSerializer(serializers.ModelSerializer):
+    status_display = serializers.ReadOnlyField(source='get_status_display')
+
     class Meta:
         model = AttendanceStatus
-        fields = ('status', 'student')
+        fields = ('status', 'student', 'status_display')
 
 
 class AttendanceSerializer(serializers.ModelSerializer):
