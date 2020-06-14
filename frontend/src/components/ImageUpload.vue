@@ -25,7 +25,7 @@
 </template>
 
 <script>
-    import axios from "axios";
+    import { httpClient } from "../plugins/httpClient";
     export default {
         name: "ImageUpload",
         data(){
@@ -64,7 +64,7 @@
                 let formData = new FormData();
                 formData.append('image', this.image);
                 this.loading = true;
-                axios.post( 'api/image/',
+                httpClient.post( 'api/image/',
                     formData,
                     {
                         headers: {
