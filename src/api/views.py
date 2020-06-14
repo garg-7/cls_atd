@@ -72,5 +72,13 @@ class AttendanceAPIView(APIView):
 
     def get(self, request, format=None):
         data = Attendance.objects.all()
-        serializer = AttendanceSerializer(data, many=True)  # Display
+        serializer = AttendanceSerializer(data, many=True)
         return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = AttendanceSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
