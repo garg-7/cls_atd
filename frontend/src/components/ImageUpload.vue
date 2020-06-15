@@ -36,13 +36,9 @@
 </template>
 
 <script>
-    import SaveAttendance from "./SaveAttendance";
     import { httpClient } from "../plugins/httpClient";
     export default {
         name: "ImageUpload",
-        components:{
-          SaveAttendance
-        },
         data(){
             return{
                 image: '',
@@ -51,6 +47,7 @@
                 singleSelect: false,
                 submitDone: false,
                 selected: [],
+                studentList:[],
                 headersImg: [
                     { text: 'Reference Image', value: 'ref_img'},
                     { text: 'Extracted Image', value: 'ext_img'},
@@ -96,6 +93,9 @@
                         console.log('FAILURE!!');
                     });
             },
+            saveData(){
+                console.log("hello")
+            }
 
         }
 

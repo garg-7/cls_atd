@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.core.files.storage import default_storage
 import os
-from .serializers import AttendanceSerializer
-from .models import Attendance
+from .serializers import AttendanceSerializer, StudentSerializer
+from .models import Attendance, Student
 from numpy import asarray
 
 from django.conf import settings
@@ -48,19 +48,19 @@ class Image(APIView):
 
     def post(self, request, *args, **kwargs):
         upload = upload_image(request=request)
-        detect_faces(upload)
+        # detect_faces(upload)
         dir_path = os.path.dirname(os.path.realpath(__file__))
         copy = os.path.join(dir_path, 'copy.py')
         os.chdir(dir_path)
-        os.system(f'python {copy}')
+        # os.system(f'python {copy}')
         path = os.path.join(dir_path, 'LightCNN')
         get_list = os.path.join(path, 'get_list.py')
         extract_feat = os.path.join(path, 'extract_features.py')
         cosine = os.path.join(path, 'cossim.py')
         os.chdir(path)
-        os.system(f'python {get_list}')
-        os.system(f'python {extract_feat}')
-        os.system(f'python {cosine}')
+        # os.system(f'python {get_list}')
+        # os.system(f'python {extract_feat}')
+        # os.system(f'python {cosine}')
         attendance = os.path.join(path, 'attendance.json')
         f = open(attendance, )
         data = json.load(f)
@@ -82,3 +82,10 @@ class AttendanceAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+class StudentAPIView(APIView):
+
+    def get(self, request, format=None):
+        data = Student.objects.all()
+        serializer = StudentSerializer(data, many=True)
+        return Response(serializer.data)
