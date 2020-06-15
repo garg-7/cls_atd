@@ -11,7 +11,12 @@
       v-btn.ma-12.white--text(v-if="imageURL && !submitDone" large="" color="blue" :loading="loading" v-on:click="submitFile()") Submit
       v-btn.ma-12.white--text(v-if = "submitDone" large color="blue" @click = "step = 2") Check Results
     div.col-md-6(v-if="step===2")
-      v-data-table.elevation-1(v-model="selected" show-select item-key="score" :single-select="singleSelect" :headers="headersImg" :items="attendanceData" :items-per-page="30")
+      v-data-table.elevation-1(v-model="selected"
+        show-select item-key="score"
+        :single-select="singleSelect"
+        :headers="headersImg"
+        :items="attendanceData"
+        :items-per-page="30")
         template(v-slot:item.ref_img='{ item }')
           v-img.ma-2(:src="item.ref_img" max-height="10rem" max-width="10rem" height="auto" width="auto" )
         template(v-slot:item.ext_img='{ item }')
@@ -25,14 +30,20 @@
               v-dialog(v-model='dialog' max-width='290' persistent)
                 template(v-slot:activator="{ on, attrs}")
                   v-btn.ma-1.white--text(large color="blue" @click = "step = 2") Go Back
-                  v-btn.ma-1.white--text(large color='blue' dark @click.stop='dialog = true' v-bind="attrs" v-on="on") Save
-                v-card
+                  v-btn.ma-1.white--text(large color='blue'
+                    dark
+                    @click.stop='dialog = true'
+                    v-bind="attrs"
+                    v-on="on" v-if="!saveDone") Save
+                v-card(v-if = "!processing")
                   v-card-title.headline Are you Sure?
                   v-card-text Please confirm if you want to save the data.
                   v-card-actions
                     v-spacer
                     v-btn(color='green darken-1' text='' @click='dialog = false') Close
-                    v-btn(color='green darken-1' text='' @click='dialog = false') Save
+                    v-btn(color='green darken-1' text='' @click='saveData') Save
+                v-card(v-else)
+                  v-card-title.headline Processing....
 </template>
 
 <script>
@@ -65,7 +76,9 @@
                     ref_img: '',
                     ext_img: '',
                 }],
-                dialog: false
+                dialog: false,
+                saveDone: false,
+                processing :false
             }
         },
         methods: {
@@ -94,9 +107,43 @@
                     });
             },
             saveData(){
-                console.log("hello")
+                this.processing = true;
+                let data = [];
+                let temp = [];
+                this.selected.forEach(ele=>{
+                    temp.push(ele.roll_no);
+                    data.push({
+                        student: ele.roll_no,
+                        status: "1"
+                    })
+                });
+                let absents = this.studentList.filter(ele=>{
+                    return temp.indexOf(ele) < 0;
+                });
+                absents.forEach(ele =>{
+                    data.push({
+                        student: ele,
+                        status: "2"
+                    })
+                });
+                const list = {
+                    attendance: data
+                };
+                httpClient.post('api/attendance/', list).then(() =>{
+                    this.saveDone = true;
+                    this.processing = false;
+                    this.dialog = false;
+                });
             }
 
+        },
+        mounted() {
+            httpClient.get('api/students/').then(response=>{
+                let data = response.data;
+                data.forEach(ele=>{
+                    this.studentList.push(ele.roll_no);
+                })
+            })
         }
 
     }
