@@ -43,7 +43,8 @@
                     v-btn(color='green darken-1' text='' @click='dialog = false') Close
                     v-btn(color='green darken-1' text='' @click='saveData') Save
                 v-card(v-else)
-                  v-card-title.headline Processing....
+                  div.pa-10
+                    v-progress-circular(:size="50", color="blue" indeterminate)
 </template>
 
 <script>
