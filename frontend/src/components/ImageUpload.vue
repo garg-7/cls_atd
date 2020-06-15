@@ -21,13 +21,28 @@
     div.col-md-6(v-if="step===3")
       v-data-table.elevation-1(:headers="headers" :items="selected" :items-per-page="30")
         template(v-slot:top)
-          v-btn.ma-1.white--text(large color="blue" @click = "step = 2") Go Back
+            v-row(justify='center')
+              v-dialog(v-model='dialog' max-width='290' persistent)
+                template(v-slot:activator="{ on, attrs}")
+                  v-btn.ma-1.white--text(large color="blue" @click = "step = 2") Go Back
+                  v-btn.ma-1.white--text(large color='blue' dark @click.stop='dialog = true' v-bind="attrs" v-on="on") Save
+                v-card
+                  v-card-title.headline Are you Sure?
+                  v-card-text Please confirm if you want to save the data.
+                  v-card-actions
+                    v-spacer
+                    v-btn(color='green darken-1' text='' @click='dialog = false') Close
+                    v-btn(color='green darken-1' text='' @click='dialog = false') Save
 </template>
 
 <script>
+    import SaveAttendance from "./SaveAttendance";
     import { httpClient } from "../plugins/httpClient";
     export default {
         name: "ImageUpload",
+        components:{
+          SaveAttendance
+        },
         data(){
             return{
                 image: '',
@@ -52,7 +67,8 @@
                     score: '',
                     ref_img: '',
                     ext_img: '',
-                }]
+                }],
+                dialog: false
             }
         },
         methods: {
@@ -79,9 +95,8 @@
                     .catch(()=>{
                         console.log('FAILURE!!');
                     });
+            },
 
-
-            }
         }
 
     }
