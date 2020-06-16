@@ -134,6 +134,7 @@
                     this.saveDone = true;
                     this.processing = false;
                     this.dialog = false;
+                    location.reload();
                 });
             }
 
