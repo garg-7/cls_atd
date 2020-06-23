@@ -37,7 +37,7 @@ python manage.py runserver --nothreading --noreload
 ```
 The backend must now be running on `localhost:8000`
 
-### Frontend 
+### Frontend Setup
 
 Note: `npm` must be installed in the computer
 
