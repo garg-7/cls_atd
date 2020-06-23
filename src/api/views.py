@@ -14,7 +14,7 @@ from PIL import Image as PImage
 import cv2
 from mtcnn import MTCNN
 import json
-
+import glob
 
 def upload_image(request):
     img = request.FILES['image']
@@ -33,6 +33,9 @@ def detect_faces(image_path):
     dir_path = os.path.dirname(os.path.realpath(__file__))
     path = os.path.join(dir_path, 'LightCNN')
     path = os.path.join(path, 'data')
+    files = glob.glob(str(path) + '/*')
+    for f in files:
+        os.remove(f)
     os.chdir(path)
     j = 0
     for i in range(0, num_of_faces):
