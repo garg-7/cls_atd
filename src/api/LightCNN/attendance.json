@@ -1,72 +1,198 @@
 [
     {
-        "roll_no": "MT19AI002",
+        "roll_no": "P19CS201",
         "attendance": "Present",
-        "score": "0.17127585",
-        "ref_img": "http://localhost:8000/static/reference/MT19AI002.jpg",
+        "score": "0.7333788605071241",
+        "ref_img": "http://localhost:8000/static/reference/P19CS201.jpg",
         "ext_img": "http://localhost:8000/static/extracted/face_1.jpg"
     },
     {
-        "roll_no": "MT19AI032",
+        "roll_no": "IDRP19CG202",
         "attendance": "Present",
-        "score": "0.332033",
-        "ref_img": "http://localhost:8000/static/reference/MT19AI032.jpg",
+        "score": "0.6302786348601017",
+        "ref_img": "http://localhost:8000/static/reference/IDRP19CG202.jpg",
         "ext_img": "http://localhost:8000/static/extracted/face_10.jpg"
-    },
-    {
-        "roll_no": "MT19DCS010",
-        "attendance": "Present",
-        "score": "0.6461117",
-        "ref_img": "http://localhost:8000/static/reference/MT19DCS010.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_2.jpg"
-    },
-    {
-        "roll_no": "MT19DCS013",
-        "attendance": "Present",
-        "score": "0.3306504",
-        "ref_img": "http://localhost:8000/static/reference/MT19DCS013.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_3.jpg"
     },
     {
         "roll_no": "MT19AI002",
         "attendance": "Present",
-        "score": "0.3400343",
+        "score": "0.6280578747424629",
         "ref_img": "http://localhost:8000/static/reference/MT19AI002.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_4.jpg"
+        "ext_img": "http://localhost:8000/static/extracted/face_11.jpg"
     },
     {
         "roll_no": "MT19AI024",
         "attendance": "Present",
-        "score": "0.35851857",
+        "score": "0.6533231998282847",
         "ref_img": "http://localhost:8000/static/reference/MT19AI024.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_5.jpg"
+        "ext_img": "http://localhost:8000/static/extracted/face_12.jpg"
+    },
+    {
+        "roll_no": "MT19AI014",
+        "attendance": "Present",
+        "score": "0.6625163688326541",
+        "ref_img": "http://localhost:8000/static/reference/MT19AI014.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_13.jpg"
+    },
+    {
+        "roll_no": "MT19CS018",
+        "attendance": "Present",
+        "score": "0.5947906035890171",
+        "ref_img": "http://localhost:8000/static/reference/MT19CS018.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_14.jpg"
+    },
+    {
+        "roll_no": "MT19CS019",
+        "attendance": "Present",
+        "score": "0.692859465247688",
+        "ref_img": "http://localhost:8000/static/reference/MT19CS019.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_15.jpg"
+    },
+    {
+        "roll_no": "P19CSE011",
+        "attendance": "Present",
+        "score": "0.7757601463615578",
+        "ref_img": "http://localhost:8000/static/reference/P19CSE011.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_16.jpg"
+    },
+    {
+        "roll_no": "MT19CS001",
+        "attendance": "Present",
+        "score": "0.6611432351910138",
+        "ref_img": "http://localhost:8000/static/reference/MT19CS001.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_17.jpg"
+    },
+    {
+        "roll_no": "MT19CS017",
+        "attendance": "Present",
+        "score": "0.7261963663851725",
+        "ref_img": "http://localhost:8000/static/reference/MT19CS017.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_18.jpg"
     },
     {
         "roll_no": "MP19CS004",
         "attendance": "Present",
-        "score": "0.5009731",
+        "score": "0.6851791641717287",
         "ref_img": "http://localhost:8000/static/reference/MP19CS004.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_6.jpg"
+        "ext_img": "http://localhost:8000/static/extracted/face_19.jpg"
+    },
+    {
+        "roll_no": "MP19CS003",
+        "attendance": "Present",
+        "score": "0.6695766594867055",
+        "ref_img": "http://localhost:8000/static/reference/MP19CS003.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_2.jpg"
+    },
+    {
+        "roll_no": "P19CS201",
+        "attendance": "Present",
+        "score": "0.6579643513148037",
+        "ref_img": "http://localhost:8000/static/reference/P19CS201.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_20.jpg"
     },
     {
         "roll_no": "MT19AI019",
         "attendance": "Present",
-        "score": "0.7032899",
+        "score": "0.7950241636786433",
         "ref_img": "http://localhost:8000/static/reference/MT19AI019.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_21.jpg"
+    },
+    {
+        "roll_no": "MT19AI032",
+        "attendance": "Present",
+        "score": "0.5830060987590403",
+        "ref_img": "http://localhost:8000/static/reference/MT19AI032.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_22.jpg"
+    },
+    {
+        "roll_no": "MT19AI018",
+        "attendance": "Present",
+        "score": "0.6121965058878962",
+        "ref_img": "http://localhost:8000/static/reference/MT19AI018.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_23.jpg"
+    },
+    {
+        "roll_no": "MT19AI002",
+        "attendance": "Present",
+        "score": "0.5985480044879274",
+        "ref_img": "http://localhost:8000/static/reference/MT19AI002.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_24.jpg"
+    },
+    {
+        "roll_no": "P19CS201",
+        "attendance": "Present",
+        "score": "0.6086509546897425",
+        "ref_img": "http://localhost:8000/static/reference/P19CS201.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_25.jpg"
+    },
+    {
+        "roll_no": "IDRP19CG202",
+        "attendance": "Present",
+        "score": "0.6321561779719475",
+        "ref_img": "http://localhost:8000/static/reference/IDRP19CG202.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_26.jpg"
+    },
+    {
+        "roll_no": "MT19CS018",
+        "attendance": "Present",
+        "score": "0.5968436066715415",
+        "ref_img": "http://localhost:8000/static/reference/MT19CS018.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_27.jpg"
+    },
+    {
+        "roll_no": "MT19AI014",
+        "attendance": "Present",
+        "score": "0.5524617963547064",
+        "ref_img": "http://localhost:8000/static/reference/MT19AI014.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_28.jpg"
+    },
+    {
+        "roll_no": "P19CS201",
+        "attendance": "Present",
+        "score": "0.612265263125541",
+        "ref_img": "http://localhost:8000/static/reference/P19CS201.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_3.jpg"
+    },
+    {
+        "roll_no": "MT19DCS013",
+        "attendance": "Present",
+        "score": "0.6957409323310395",
+        "ref_img": "http://localhost:8000/static/reference/MT19DCS013.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_4.jpg"
+    },
+    {
+        "roll_no": "MT19DCS010",
+        "attendance": "Present",
+        "score": "0.7455074930347834",
+        "ref_img": "http://localhost:8000/static/reference/MT19DCS010.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_5.jpg"
+    },
+    {
+        "roll_no": "MT19AI006",
+        "attendance": "Present",
+        "score": "0.6628666437005897",
+        "ref_img": "http://localhost:8000/static/reference/MT19AI006.jpg",
+        "ext_img": "http://localhost:8000/static/extracted/face_6.jpg"
+    },
+    {
+        "roll_no": "P19CS202",
+        "attendance": "Present",
+        "score": "0.7040305052537117",
+        "ref_img": "http://localhost:8000/static/reference/P19CS202.jpg",
         "ext_img": "http://localhost:8000/static/extracted/face_7.jpg"
     },
     {
         "roll_no": "MT19CS001",
         "attendance": "Present",
-        "score": "0.36073354",
+        "score": "0.613948221737032",
         "ref_img": "http://localhost:8000/static/reference/MT19CS001.jpg",
         "ext_img": "http://localhost:8000/static/extracted/face_8.jpg"
     },
     {
-        "roll_no": "MT19CS019",
+        "roll_no": "IDRP19CG201",
         "attendance": "Present",
-        "score": "0.18954493",
-        "ref_img": "http://localhost:8000/static/reference/MT19CS019.jpg",
+        "score": "0.6054993536247171",
+        "ref_img": "http://localhost:8000/static/reference/IDRP19CG201.jpg",
         "ext_img": "http://localhost:8000/static/extracted/face_9.jpg"
     }
 ]

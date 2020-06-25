@@ -1,4 +1,4 @@
-from numpy import dot
+from numpy import dot, arccos, pi
 from numpy.linalg import norm
 import json
 import numpy as np
@@ -40,7 +40,9 @@ for test_img_name in test_data_list:
 
         ref_feat = np.fromfile(ref_feat_file, dtype='<f', count=-1)  # loading the features of the ref img
 
-        cos_sim = abs(dot(test_feat, ref_feat) / (norm(test_feat) * norm(ref_feat)))
+        cos_sim = 1 - arccos(dot(test_feat, ref_feat)/(norm(test_feat)*norm(ref_feat)))/pi
+
+        # cos_sim = abs(dot(test_feat, ref_feat) / (norm(test_feat) * norm(ref_feat)))
 
         temp.append((ref_img_name.replace('.feat', ''), float(cos_sim)))
 
