@@ -6,10 +6,7 @@ import numpy as np
 ans = []
 
 sim = dict()  # dictionary that stores:
-# {
-#   test_face1:[(ref_face1, similarity_with_it),(ref_face2, similarity_with_it)...],
-#   test_face2:[(ref_face1, similarity_with_it),(ref_face2, similarity_with_it)...]
-# }
+
 test_faces = list()  # list of all the test faces
 
 test_data_list = open('list.txt', 'r')  # open the file that has the list of test images
@@ -42,8 +39,6 @@ for test_img_name in test_data_list:
 
         cos_sim = 1 - arccos(dot(test_feat, ref_feat)/(norm(test_feat)*norm(ref_feat)))/pi
 
-        # cos_sim = abs(dot(test_feat, ref_feat) / (norm(test_feat) * norm(ref_feat)))
-
         temp.append((ref_img_name.replace('.feat', ''), float(cos_sim)))
 
         if cos_sim > maxsim:
@@ -66,16 +61,3 @@ for test_img_name in test_data_list:
 
 with open('attendance.json', 'w', encoding='utf-8') as f:
     json.dump(ans, f, ensure_ascii=False, indent=4)
-# print("\n\n----Normal execution ended----\n\n")
-
-
-# x = input("Do you want the dictionary values?(y/n)")
-# if x=='y':
-#     for test_face in sim:
-#         print(test_face+":")
-#         sim[test_face].sort(key=lambda x: x[1],reverse = True)
-#         for val in sim[test_face]:
-#             print(val)
-#         print()
-# else :
-#     print("Program ended.")
