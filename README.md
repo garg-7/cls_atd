@@ -1,5 +1,5 @@
 # cls_atd
-Photographic Classroom Attendance System made for 4th semester B.Tech Project under the guidance of Dr. Anand Mishra
+Photographic Classroom Attendance System made for 4th semester B.Tech Project under the guidance of Prof. Anand Mishra
 
 
 ## Getting Started
