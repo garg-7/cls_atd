@@ -9,7 +9,10 @@
         | Upload a Image
       br
       v-btn.ma-12.white--text(v-if="imageURL && !submitDone" large="" color="blue" :loading="loading" v-on:click="submitFile()") Submit
-      v-btn.ma-12.white--text(v-if = "submitDone" large color="blue" @click = "step = 2") Check Results
+      v-btn.ma-12.white--text(v-if = "submitDone" large color="blue" @click = "step = 1") Check Results
+    div.col-md-6(v-if="step===1")
+      v-img(:src="markedImageURL" aspect-ratio="1.7" max-width="150vh")
+      v-btn.ma-12.white--text( large color="blue" @click = "step = 2") Next
     div.col-md-6(v-if="step===2")
       v-data-table.elevation-1(v-model="selected"
         show-select item-key="score"
@@ -22,6 +25,7 @@
         template(v-slot:item.ext_img='{ item }')
           v-img.ma-2(:src="item.ext_img" max-height="10rem" max-width="10rem" height="auto" width="auto")
         template(v-slot:top)
+          v-btn.ml-12.white--text(large color="blue" @click = "step = 1") Go Back
           v-btn.ml-12.white--text(large color="blue" @click = "step = 3") Get Attendance
     div.col-md-6(v-if="step===3")
       v-data-table.elevation-1(:headers="headers" :items="selected" :items-per-page="30")
@@ -55,6 +59,7 @@
             return{
                 image: '',
                 imageURL: '',
+                markedImageURL: 'http://localhost:8000/static/output.jpg/',
                 step: 0,
                 singleSelect: false,
                 submitDone: false,
