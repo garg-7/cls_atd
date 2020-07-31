@@ -53,7 +53,7 @@ npm install
 
 * Run development server 
 ```
-npm run server 
+npm run serve 
 ```
 
 The frontend of the application must now be running at `localhost:8080`
