@@ -2,8 +2,10 @@ from numpy import dot, arccos, pi
 from numpy.linalg import norm
 import json
 import numpy as np
+import os
 
 ans = []
+info = {}
 
 sim = dict()  # dictionary that stores:
 
@@ -56,8 +58,18 @@ for test_img_name in test_data_list:
         "ref_img": 'http://localhost:8000/static/reference/{}.jpg'.format(maxsim_name.replace('f.feat', '')),
         "ext_img": 'http://localhost:8000/static/extracted/{}.jpg'.format(test_img_name.replace('.feat', ''))
     })
+
+    info[test_img_name.replace('.feat', '')] = [maxsim_name.replace('f.feat', ''), float(maxsim)]
     with open('scores.json', 'w') as handle:
         json.dump(sim, handle)
 
 with open('attendance.json', 'w', encoding='utf-8') as f:
     json.dump(ans, f, ensure_ascii=False, indent=4)
+
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+t = dir_path.rsplit('/', 1)[0]
+os.chdir(t)
+with open('info.json', 'w', encoding='utf-8') as f:
+    json.dump(info, f, ensure_ascii=False, indent=4)
+

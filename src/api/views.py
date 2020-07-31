@@ -38,13 +38,60 @@ def detect_faces(image_path):
         os.remove(f)
     os.chdir(path)
     j = 0
+    boxes = {}
     for i in range(0, num_of_faces):
         bounding_box = result[i]['box']
-        keypoints = result[i]['keypoints']
+        boxes["face_{}".format(j + 1)] = bounding_box
         tempim = pixels[bounding_box[1]:(bounding_box[1] + bounding_box[3]),
                  bounding_box[0]:(bounding_box[0] + bounding_box[2])]
         cv2.imwrite("face_{}.jpg".format(j + 1), cv2.cvtColor(tempim, cv2.COLOR_RGB2BGR))
         j = j + 1
+    os.chdir(dir_path)
+    with open("boxes.json", "w") as boxes_file:
+        json.dump(boxes, boxes_file, indent=4)
+    os.chdir(path)
+
+
+def mark_faces(img_path):
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    os.chdir(dir_path)
+    boxes_path = "boxes.json"
+    info_path = "info.json"
+
+    image = PImage.open(default_storage.open(img_path))
+    image = image.convert('RGB')
+    img = asarray(image)
+    boxes = json.load(open(boxes_path, "r"))
+
+    info = json.load(open(info_path, "r"))
+
+    for face in boxes.keys():
+        box = boxes[face]
+        details = info[face]
+        name = details[0]
+        score = details[1]
+
+        if score > 0.7:
+            color = (0, 255, 0)
+        elif score < 0.3:
+            color = (0, 0, 255)
+        else:
+            color = (0, 255, 255)
+
+        cv2.putText(img,
+                    name,
+                    (box[0], box[1] - 5),
+                    cv2.FONT_HERSHEY_TRIPLEX,
+                    0.7,
+                    color,
+                    1)
+
+        img1 = cv2.rectangle(img,
+                             (box[0], box[1]),  # top left
+                             (box[0] + box[2], box[1] + box[3]),  # bottom right
+                             color,
+                             2)  # thickness
+        cv2.imwrite("output.jpg", cv2.cvtColor(img1, cv2.COLOR_RGB2BGR))
 
 
 class Image(APIView):
@@ -64,6 +111,7 @@ class Image(APIView):
         os.system(f'python {get_list}')
         os.system(f'python {extract_feat}')
         os.system(f'python {cosine}')
+        mark_faces(upload)
         attendance = os.path.join(path, 'attendance.json')
         f = open(attendance, )
         data = json.load(f)
