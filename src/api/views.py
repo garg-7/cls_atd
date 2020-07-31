@@ -91,7 +91,11 @@ def mark_faces(img_path):
                              (box[0] + box[2], box[1] + box[3]),  # bottom right
                              color,
                              2)  # thickness
-        cv2.imwrite("output.jpg", cv2.cvtColor(img1, cv2.COLOR_RGB2BGR))
+    path = dir_path.rsplit('/', 1)[0]
+    t = dir_path.rsplit('/', 1)[0]
+    path = os.path.join(t, 'static')
+    os.chdir(path)
+    cv2.imwrite("output.jpg", cv2.cvtColor(img1, cv2.COLOR_RGB2BGR))
 
 
 class Image(APIView):
