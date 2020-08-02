@@ -66,8 +66,8 @@
                 selected: [],
                 studentList:[],
                 headersImg: [
-                    { text: 'Reference Image', value: 'ref_img'},
                     { text: 'Extracted Image', value: 'ext_img'},
+                    { text: 'Reference Image', value: 'ref_img'},
                     { text: 'Scores', value: 'score'}
                 ],
                 headers: [
