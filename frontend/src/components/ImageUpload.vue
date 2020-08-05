@@ -33,20 +33,22 @@
       v-data-table.elevation-1(:headers="headers" :items="selected" :items-per-page="30")
         template(v-slot:top)
             v-row(justify='center')
-              v-dialog(v-model='dialog' max-width='290' persistent)
+              v-dialog(v-model='dialog' width='790' persistent)
                 template(v-slot:activator="{ on, attrs}")
                   v-btn.ma-1.white--text(large color="blue" @click = "step = 2") Go Back
                   v-btn.ma-1.white--text(large color='blue'
                     dark
-                    @click.stop='dialog = true'
+                    @click.stop='preSave'
                     v-bind="attrs"
                     v-on="on" v-if="!saveDone") Save
                 v-card(v-if = "!processing")
                   v-card-title.headline Are you Sure?
                   v-card-text Please confirm if you want to save the data.
+                  v-data-table.elevation-1(show-select item-key="roll_no" v-model="finalSelected" 
+                                          :headers="finalHeader" :items="newStudentList" :items-per-page="30")
                   v-card-actions
                     v-spacer
-                    v-btn(color='green darken-1' text='' @click='dialog = false') Close
+                    v-btn(color='green darken-1' text='' @click='close') Close
                     v-btn(color='green darken-1' text='' @click='saveData') Save
                 v-card(v-else)
                   div.pa-10
@@ -66,7 +68,9 @@
                 singleSelect: false,
                 submitDone: false,
                 selected: [],
+                finalSelected:[],
                 studentList:[],
+                newStudentList:[],
                 headersImg: [
                     { text: 'Extracted Image', value: 'ext_img'},
                     { text: 'Reference Image', value: 'ref_img'},
@@ -76,6 +80,9 @@
                     { text: 'Roll no', value: 'roll_no' },
                     { text: 'Attendance', value: 'attendance'},
                 ],
+                finalHeader: [
+                  { text: 'Roll no', value: 'roll_no' },
+                ], 
                 loading : false,
                 attendanceData: [{
                     roll_no : '',
@@ -115,11 +122,24 @@
                         console.log('FAILURE!!');
                     });
             },
+            preSave(){
+              this.finalSelected= [];
+              this.selected.forEach(ele=>{
+                this.finalSelected.push({
+                  roll_no: ele.roll_no
+                })
+              })
+              this.dialog = true;
+            },
+            close(){
+              this.finalSelected = [];
+              this.dialog = false;
+            },
             saveData(){
                 this.processing = true;
                 let data = [];
                 let temp = [];
-                this.selected.forEach(ele=>{
+                this.finalSelected.forEach(ele=>{
                     temp.push(ele.roll_no);
                     data.push({
                         student: ele.roll_no,
@@ -150,6 +170,7 @@
         mounted() {
             httpClient.get('api/students/').then(response=>{
                 let data = response.data;
+                this.newStudentList = data;
                 data.forEach(ele=>{
                     this.studentList.push(ele.roll_no);
                 })
