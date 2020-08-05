@@ -19,7 +19,9 @@
         :single-select="singleSelect"
         :headers="headersImg"
         :items="attendanceData"
-        :items-per-page="30")
+        :items-per-page="30"
+        sort-by="score"
+        sort-desc=true)
         template(v-slot:item.ref_img='{ item }')
           v-img.ma-2(:src="item.ref_img" max-height="10rem" max-width="10rem" height="auto" width="auto" )
         template(v-slot:item.ext_img='{ item }')
@@ -105,6 +107,7 @@
                     }
                 ).then((response)=>{
                     this.attendanceData = response.data;
+                    this.selected = response.data;
                     this.loading = false;
                     this.submitDone = true;
                 })
