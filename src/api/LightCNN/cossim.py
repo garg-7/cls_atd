@@ -51,13 +51,14 @@ for test_img_name in test_data_list:
 
     sim[test_img_name.replace('.feat', '')] = temp
     print(test_img_name.replace('.feat', '') + " - " + maxsim_name.replace('f.feat', '') + "| Score :", maxsim)
-    ans.append({
-        "roll_no": maxsim_name.replace('f.feat', ''),
-        "attendance": 'Present',
-        "score": str(maxsim),
-        "ref_img": 'http://localhost:8000/static/reference/{}.jpg'.format(maxsim_name.replace('f.feat', '')),
-        "ext_img": 'http://localhost:8000/static/extracted/{}.jpg'.format(test_img_name.replace('.feat', ''))
-    })
+    if float(maxsim) > 0.62:
+        ans.append({
+            "roll_no": maxsim_name.replace('f.feat', ''),
+            "attendance": 'Present',
+            "score": str(maxsim),
+            "ref_img": 'http://localhost:8000/static/reference/{}.jpg'.format(maxsim_name.replace('f.feat', '')),
+            "ext_img": 'http://localhost:8000/static/extracted/{}.jpg'.format(test_img_name.replace('.feat', ''))
+        })
 
     info[test_img_name.replace('.feat', '')] = [maxsim_name.replace('f.feat', ''), float(maxsim)]
     with open('scores.json', 'w') as handle:

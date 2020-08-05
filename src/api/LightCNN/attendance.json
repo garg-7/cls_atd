@@ -1,45 +1,10 @@
 [
     {
-        "roll_no": "MT19AI002",
-        "attendance": "Present",
-        "score": "0.5547889176959205",
-        "ref_img": "http://localhost:8000/static/reference/MT19AI002.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_1.jpg"
-    },
-    {
-        "roll_no": "MT19AI032",
-        "attendance": "Present",
-        "score": "0.6077345330306038",
-        "ref_img": "http://localhost:8000/static/reference/MT19AI032.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_10.jpg"
-    },
-    {
         "roll_no": "MT19DCS010",
         "attendance": "Present",
         "score": "0.7236059981696974",
         "ref_img": "http://localhost:8000/static/reference/MT19DCS010.jpg",
         "ext_img": "http://localhost:8000/static/extracted/face_2.jpg"
-    },
-    {
-        "roll_no": "MT19DCS013",
-        "attendance": "Present",
-        "score": "0.6072680690557872",
-        "ref_img": "http://localhost:8000/static/reference/MT19DCS013.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_3.jpg"
-    },
-    {
-        "roll_no": "MT19AI002",
-        "attendance": "Present",
-        "score": "0.6104386808140025",
-        "ref_img": "http://localhost:8000/static/reference/MT19AI002.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_4.jpg"
-    },
-    {
-        "roll_no": "MT19AI024",
-        "attendance": "Present",
-        "score": "0.6167180152274538",
-        "ref_img": "http://localhost:8000/static/reference/MT19AI024.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_5.jpg"
     },
     {
         "roll_no": "MP19CS004",
@@ -54,19 +19,5 @@
         "score": "0.7482864124168462",
         "ref_img": "http://localhost:8000/static/reference/MT19AI019.jpg",
         "ext_img": "http://localhost:8000/static/extracted/face_7.jpg"
-    },
-    {
-        "roll_no": "MT19CS001",
-        "attendance": "Present",
-        "score": "0.6174736238771341",
-        "ref_img": "http://localhost:8000/static/reference/MT19CS001.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_8.jpg"
-    },
-    {
-        "roll_no": "MT19CS019",
-        "attendance": "Present",
-        "score": "0.5607012812234651",
-        "ref_img": "http://localhost:8000/static/reference/MT19CS019.jpg",
-        "ext_img": "http://localhost:8000/static/extracted/face_9.jpg"
     }
 ]
