@@ -71,9 +71,9 @@ def mark_faces(img_path):
         name = details[0]
         score = details[1]
 
-        if score > 0.7:
+        if score > 0.62:
             color = (0, 255, 0)
-        elif score < 0.3:
+        elif score < 0.5:
             color = (255, 0, 0)
         else:
             color = (0, 255, 255)
